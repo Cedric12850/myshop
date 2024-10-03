@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire catégorie{% endblock %}
+
+{% block body %}
+    {# Portion visible de la page aussi appelé "partie dynamique" #}
+    <h1>Ajouter une catégorie:</h1>
+    <div class="container">
+        {{form(formulaire)}}
+    </div>
+    <a href="/product"><input class="btn btn-light" type="submit" value="retour"></a>
+
+{% endblock %}

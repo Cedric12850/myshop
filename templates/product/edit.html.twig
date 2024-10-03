@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un produit{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Modifier un produit:</h1>
+        {{form(formulaire)}}
+    </div>    
+
+    <a  href="/product"><input class="btn btn-light" type="submit" value="retour"></a>
+{% endblock %}

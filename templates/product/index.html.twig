@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+<section class="container">
+    <h1>Liste des produits:</h1>
+    <a href="product/add"><input class="btn btn-light" type="submit" value="Ajouter un produit"></a>
+    <a href="category/add"><input class="btn btn-light" type="submit" value="Ajouter une catégorie"></a>
+        <article class="container row justify-content-md-center">
+            {% for product in products %}
+                
+                    <div class="card m-1 col-md-5 col-lg-3">
+                        <img class="p-2" src="upload/{{product.thumbnail}}" alt="{{product.thumbnail}}">
+                        <h2 class="card-title">{{product.name}}</h2>
+                        <div class="card-body">
+                            <p class="card-text">{{product.description}}</p>
+                            <p class="card-text col-4 offset-8">{{product.price}}€</p>
+                        </div>
+                        <p>Catégorie: {{product.category.name|title}}</p>
+                    </div>
+                 
+            {% endfor %}
+        </article>
+</section>
+    
+{% endblock %}

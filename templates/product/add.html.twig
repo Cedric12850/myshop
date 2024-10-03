@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire produits{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Ajouter des produits:</h1>
+        {{form(formulaire)}}
+    </div>    
+
+    <a  href="/product"><input class="btn btn-light" type="submit" value="retour"></a>
+{% endblock %}
