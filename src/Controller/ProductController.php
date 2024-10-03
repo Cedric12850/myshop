@@ -80,7 +80,7 @@ class ProductController extends AbstractController
         $product = $productRepository->find($id);
         dump($product);
         return $this->render('product/id.html.twig', [
-            'id' => $product
+            'product' => $product
         ]);
     }
 
