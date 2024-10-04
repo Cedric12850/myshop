@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension;
@@ -38,11 +39,23 @@ class CategoryController extends AbstractController
             $entityManager->persist($newcategory);
             $entityManager->flush();
 
+            return $this->redirectToRoute('app_product');
+
         }
         
         return $this->render('category/add.html.twig', [
             //on envoie le formulaire à la vue
             'formulaire'=>$form
+        ]);
+    }
+
+    #[Route('/category/{id}', name: 'app_category_show')]
+    public function show(CategoryRepository $categoryRepository, $id):Response
+    {
+        $category = $categoryRepository->find($id);
+        dump($category);
+        return $this->render('category/show.html.twig', [
+            'category' =>$category
         ]);
     }
 }

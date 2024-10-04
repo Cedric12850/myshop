@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowCategory{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-3">
+        <h1 class="text-center"> {{ category.name|title }}</h1>
+        <div class="row">
+            {% for product in category.products %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card">
+                    <img src="../upload/{{ product.thumbnail}}" class="card-img-top" alt="{{ product.thumbnail}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name|upper}}</h5>
+                        <small class="badge text-bg-secondary"> {{ product.price|number_format(2,',' ,' ')}}€</small>
+                        <p class="card-text">{{ product.description|capitalize}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

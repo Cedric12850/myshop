@@ -67,6 +67,8 @@ class ProductController extends AbstractController
             $newProduct = $form->getData();
             $entityManager->persist($newProduct);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_product');
         }
         return $this->render('product/add.html.twig', [
             'formulaire'=>$form

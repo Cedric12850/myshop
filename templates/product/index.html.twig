@@ -4,9 +4,17 @@
 
 {% block body %}
 <section class="container">
+    {% if app.user %}
+        Bienvenue {{ app.user }}
+        <a href='/logout' class="btn btn-primary"> Deconnexion </a>
+    {% else %}
+        Bienvenue invité.
+        <a href='/login' class="btn btn-primary"> Se connecter </a>
+        <a href='/register' class="btn btn-primary"> S'inscrire </a>
+    {% endif %}
     <h1>Liste des produits:</h1>
-    <a href="product/add"><input class="btn btn-light" type="submit" value="Ajouter un produit"></a>
-    <a href="category/add"><input class="btn btn-light" type="submit" value="Ajouter une catégorie"></a>
+    <a href="product/add"><input class="btn btn-primary" type="submit" value="Ajouter un produit"></a>
+    <a href="category/add"><input class="btn btn-primary" type="submit" value="Ajouter une catégorie"></a>
         <article class="container row justify-content-md-center">
             {% for product in products %}
                 
